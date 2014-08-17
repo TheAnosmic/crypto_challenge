@@ -78,7 +78,8 @@ class TextTests(TestCase):
         self.assertEqual(Text.byte_array_to_lower(ByteArray(HELLO_WORLD)), HELLO_WORLD.lower())
 
     def test_find_one_char_key(self):
-        crypto_ch3_feed = ByteArray.from_hex("1b37373331363f78151b7f2b783431333d78397828372d363c78373e783a393b3736")
+        crypto_ch3_feed = ByteArray.from_hex("1b37373331363f78151b7f2b783431333d"
+                                             "78397828372d363c78373e783a393b3736")
         crypto_ch3_solution = "Pbbxvat ZP'f yvxr n cbhaq bs onpba".decode("rot13") # no plain-text for u
         found = crypto_ch3_feed ^ Text.find_one_char_key(crypto_ch3_feed)
         self.assertEqual(found, crypto_ch3_solution)

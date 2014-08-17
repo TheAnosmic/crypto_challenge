@@ -5,7 +5,7 @@ from string import printable
 
 class ByteArray(object):
     """
-    Helper class to string manipulations.
+    Helper class for string manipulations.
     """
 
     def __init__(self, source):
@@ -38,7 +38,7 @@ class ByteArray(object):
     @classmethod
     def from_int_list(cls, source):
         # Probably will be doing the calculate of int_list again,
-        # but decided to leave it like that cuz not better solution found.
+        # but decided to leave it like that cuz no better solution found.
         return cls(''.join(chr(i) for i in source))
 
 
@@ -90,12 +90,3 @@ class ByteArray(object):
         def comparator(x, y):
             return x + bin(y[0] ^ y[1]).count("1")
         return reduce(comparator, self._iter_couple(other), 0)
-
-    # def hamming_distance(self, chunk_size, chunk_one_start):
-    #     def f(x, y):
-    #         return x + bin(y[0] ^ y[1]).count("1")
-    #
-    #     chunk_one_end = chunk_one_start + chunk_size
-    #     c1 = self.source_int_list[chunk_one_start:chunk_one_end]
-    #     c2 = self.source_int_list[chunk_one_end:chunk_one_end + chunk_size]
-    #     return reduce(f, zip(c1, c2), 0)
